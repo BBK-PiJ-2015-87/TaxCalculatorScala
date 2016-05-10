@@ -2,7 +2,7 @@ name := "TaxCalculator"
 
 version := "1.0"
 
-scalaVersion := "2.11.8"
+scalaVersion := "2.11.7"
 
 lazy val versions = new {
   val finatra = "2.1.2"
@@ -24,6 +24,9 @@ resolvers ++= Seq(
 libraryDependencies += "com.twitter.finatra" % "finatra-http_2.11" % versions.finatra
 libraryDependencies += "com.twitter.finatra" % "finatra-slf4j_2.11" % versions.finatra
 libraryDependencies += "ch.qos.logback" % "logback-classic" % versions.logback
+
+libraryDependencies += "com.lihaoyi" % "scalatags_2.11" % "0.5.5"
+
 
 //testing dependencies
 
