@@ -1,9 +1,8 @@
 package app
 
 import com.twitter.finatra.http.HttpServer
-import com.twitter.finatra.http.filters.CommonFilters
 import com.twitter.finatra.http.routing.HttpRouter
-import controllers.{FileController, TagsTestController, WeightResource, HelloController}
+import controllers.{PrintController, FileController, HelloController, TagsTestController}
 
 class Server extends HttpServer {
 
@@ -18,6 +17,7 @@ class Server extends HttpServer {
 //      .add[WeightResource]
       .add[TagsTestController]
       .add[FileController]
+      .add[PrintController]
   }
 
 }

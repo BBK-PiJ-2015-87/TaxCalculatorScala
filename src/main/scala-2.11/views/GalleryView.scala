@@ -4,7 +4,7 @@ import scalatags.Text.all._
 import scalatags.Text.tags2.title
 
 class GalleryView {
-  val imageIds = List(121, 2332, 1222, 7126, 1823, 9128, 1928, 923744,55, 66, 77)
+  val imageIds = 1 to 12
 
   val page = {
       html( lang:="en",
@@ -34,18 +34,41 @@ class GalleryView {
                   console.log(clickedarray);
                 }
               });
+            });""",
+
+            """
+            $(document).ready(function() {
+              $('button.printButton').click(function() {
+                window.print();
+              });
+            });""",
+
+            """
+            $(document).ready(function() {
+              $('button.saveButton').click(function() {
+                var url = '/print';
+                window.location.href = url;
+                return false;
+              });
             });"""
+
+
           )
         ),
         body(
+          div(
+            button(tpe:="button", cls:="btn btn-default printButton","Print")
+          ),
+          div(
+            button(tpe:="button", cls:="btn btn-default saveButton","Save")
+          ),
           div( cls:="container",
             div( cls:="row",
-              for (imgId <- imageIds) yield
-                a(cls:="thumbnail", href:="#",
-                  div( cls:="col-lg-3 col-md-4 col-xs-6 thumb",
-                  img(src:= "public/icon.jpg", id:=imgId, cls:="inGallery col-lg-3 col-md-4 col-xs-6 thumb")
+              for (imgId <- imageIds)
+                yield
+                  div( cls:="col-lg-4 col-md-6 col-xs-12 thumb",
+                    img(src:= "public/circle"+imgId+".png", id:=imgId, cls:="inGallery img-responsive img-circle thumb")
                   )
-                )
             )
           )
         )

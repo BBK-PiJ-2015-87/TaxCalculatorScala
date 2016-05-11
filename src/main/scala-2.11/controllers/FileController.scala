@@ -2,17 +2,11 @@ package controllers
 
 import com.twitter.finagle.http.{Request}
 import com.twitter.finatra.http.Controller
-import views.{GalleryView, BootstrapView, ImageView}
+import views.{GalleryView, BootstrapView}
 
 class FileController extends Controller {
   get("/:*") { request: Request =>
     response.ok.fileOrIndex(request.params("*"), "public/index.html")
-  }
-
-  val imageView = new ImageView
-
-  get("/file") { request: Request =>
-    imageView.fragment.toString()
   }
 
   val bootstrap = new BootstrapView
