@@ -2,7 +2,7 @@ name := "TaxCalculator"
 
 version := "1.0"
 
-scalaVersion := "2.11.7"
+scalaVersion := "2.11.8"
 
 lazy val versions = new {
   val finatra = "2.1.2"
