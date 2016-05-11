@@ -2,7 +2,7 @@ package app
 
 import com.twitter.finatra.http.HttpServer
 import com.twitter.finatra.http.routing.HttpRouter
-import controllers.{PrintController, FileController, HelloController, TagsTestController}
+import controllers.{PrintController, FileController}
 
 class Server extends HttpServer {
 
@@ -13,9 +13,7 @@ class Server extends HttpServer {
   override protected def configureHttp(router: HttpRouter): Unit = {
     router
 //      .filter[CommonFilters] //filter @Size @Range etc. Alsoif bad request it will return 400 instead 500
-      .add(new HelloController)
 //      .add[WeightResource]
-      .add[TagsTestController]
       .add[FileController]
       .add[PrintController]
   }

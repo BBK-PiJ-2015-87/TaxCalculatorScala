@@ -19,9 +19,17 @@
     left: 10px;
 }
 
+
 @page Section1 {
-    size: 21cm 29.7cm;
-    margin: 0mm 0mm 0mm 0mm;
+    size: A4;
+    margin: 0;
+}
+
+@media print {
+    html, body {
+        width: 210mm;
+        height: 297mm;
+    }
 }
 
 div.fullpage {

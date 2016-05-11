@@ -12,5 +12,4 @@ class PrintController extends Controller {
   get("/print") { request: Request =>
       "<!DOCTYPE html>" + pageToPrint.page.toString()
   }
-
 }
