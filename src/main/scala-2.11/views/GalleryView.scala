@@ -19,12 +19,19 @@ class GalleryView {
 
           script("""
             $(document).ready(function() {
+              var clickedarray = new Array();
               $('img.inGallery').click(function() {
+                var id = $(this).attr('id');
                 if($(this).hasClass('selectedImg')) {
+                  var index = clickedarray.indexOf(id);
+                  clickedarray.splice(index, 1);
                   $(this).removeClass('selectedImg');
+                  console.log(clickedarray);
                 }
                 else {
+                  clickedarray.push(id);
                   $(this).addClass('selectedImg');
+                  console.log(clickedarray);
                 }
               });
             });"""
@@ -35,7 +42,7 @@ class GalleryView {
             for (row <- rows ) yield div( cls:="row",
               for (column <- columns) yield
                 div( cls:="col-sm-4",
-                  img(src:= "public/icon.jpg", style:="margin:50px 50px", cls:="inGallery")
+                  img(src:= "public/icon.jpg", id:=row+column, style:="margin:50px 50px", cls:="inGallery")
                 )
             )
           )
