@@ -4,8 +4,8 @@ import scalatags.Text.all._
 import scalatags.Text.tags2.title
 
 class GalleryView {
-  val rows = 1 to 5
-  val columns = 1 to 3
+  val imageIds = List(121, 2332, 1222, 7126, 1823, 9128, 1928, 923744,55, 66, 77)
+
   val page = {
       html( lang:="en",
         head(
@@ -39,10 +39,12 @@ class GalleryView {
         ),
         body(
           div( cls:="container",
-            for (row <- rows ) yield div( cls:="row",
-              for (column <- columns) yield
-                div( cls:="col-sm-4",
-                  img(src:= "public/icon.jpg", id:=row+column, style:="margin:50px 50px", cls:="inGallery")
+            div( cls:="row",
+              for (imgId <- imageIds) yield
+                a(cls:="thumbnail", href:="#",
+                  div( cls:="col-lg-3 col-md-4 col-xs-6 thumb",
+                  img(src:= "public/icon.jpg", id:=imgId, cls:="inGallery col-lg-3 col-md-4 col-xs-6 thumb")
+                  )
                 )
             )
           )
